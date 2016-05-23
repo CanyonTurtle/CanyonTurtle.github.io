@@ -1,2 +1,2 @@
-# webdev
-a repository for web development.
+# WebDev
+A repository for web development.
