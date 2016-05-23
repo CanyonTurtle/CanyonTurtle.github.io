@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # webdev
 a repository for web development.
 
@@ -126,3 +127,10 @@ You can start by [opening an issue](https://github.com/barryclark/jekyll-now/iss
 
 I want to keep Jekyll Now as minimal as possible. Every line of code should be one that's useful to 90% of the people using it. Please bear that in mind when submitting feature requests. If it's not something that most people will use, it probably won't get merged. :guardsman:
 >>>>>>> jekyll/master
+=======
+# WebDev
+A repository for web development.
+
+
+This is an addition by cannon.
+>>>>>>> 0ae3a9ea1808fd77420d109908969c282d2c6624
