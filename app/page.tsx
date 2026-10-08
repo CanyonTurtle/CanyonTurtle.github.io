@@ -5,6 +5,7 @@ import { getBlogPosts } from 'app/blog/utils';
 import { getProjects } from 'app/projects/utils';
 import Link from 'next/link';
 import Image from 'next/image';
+import { Icon } from 'app/components/fa-icon';
 import { getImageFullPath } from 'base-path';
 
 export default function Page() {
@@ -20,7 +21,7 @@ export default function Page() {
   )[0];
 
   // Get a featured game (you can change this to any specific game slug)
-  const featuredGame = games.find((game) => game.slug === 'zelda-tears-of-kingdom') || games[0];
+  const featuredGame = games.find((game) => game.slug === 'panelpon4') || games[0];
 
   // Get a featured project
   const featuredProject = projects.find((project) => project.slug === 'see-sharp') || projects[0];
@@ -45,6 +46,8 @@ export default function Page() {
         />
         <h1 className="text-2xl font-semibold tracking-tighter">Cannon Tuttle's Portfolio</h1>
         <div className="flex flex-row flex-wrap gap-x-4 gap-y-1 mt-1 mb-2 text-sm text-neutral-600 dark:text-neutral-400 leading-tight">
+          <div className="flex flex-row gap-2">
+          <Icon icon={'linkedin'} />
           <a
             href="https://www.linkedin.com/in/cannontuttle"
             target="_blank"
@@ -53,10 +56,14 @@ export default function Page() {
           >
             linkedin.com/in/cannontuttle
           </a>
+          </div>
           <span>·</span>
+          <div className="flex flex-row gap-2">
+          <Icon icon={'email'} />
           <a href="mailto:cannontuttlework@gmail.com" className="hover:underline">
             cannontuttlework@gmail.com
           </a>
+          </div>
         </div>
       </div>
       <p className="mb-8 text-neutral-700 dark:text-neutral-300 leading-relaxed">

@@ -60,7 +60,7 @@ function CtaButton({
       href={href}
       className="inline-flex flex-row gap-1 items-center px-3 py-1 text-xs font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-md transition-colors duration-200"
     >
-      <ButtonIcon icon={icon} />
+      <Icon icon={icon} />
       {children}
     </Link>
   );
@@ -81,7 +81,7 @@ function OtherButton({
       rel="noopener noreferrer"
       className="inline-flex flex-row gap-1 items-center px-3 py-1 text-xs font-medium text-neutral-700 dark:text-neutral-300 bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 rounded-md transition-colors duration-200"
     >
-      <ButtonIcon icon={icon} />
+      <Icon icon={icon} />
       {children}
     </Link>
   );
@@ -144,24 +144,7 @@ export function CareerCard({
                   <OtherButton href={backHref}>← Back to career</OtherButton>
                 )}
                 {post.metadata.externalLink && (
-                  <OtherButton
-                    href={post.metadata.externalLink}
-                    icon={
-                      <svg
-                        className="w-3 h-3 mr-1"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-                        />
-                      </svg>
-                    }
-                  >
+                  <OtherButton href={post.metadata.externalLink} icon={'link'}>
                     View LinkedIn
                   </OtherButton>
                 )}
