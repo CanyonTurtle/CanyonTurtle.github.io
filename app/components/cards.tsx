@@ -2,8 +2,7 @@ import Link from 'next/link';
 import { formatDate } from 'app/lib/mdx';
 import { getImageFullPath } from 'base-path';
 import { getBlogPosts } from 'app/blog/utils';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlay } from '@fortawesome/free-solid-svg-icons';
+import {Icon} from './icon'
 
 // Import RoundedImage from the MDX components
 function RoundedImage(props) {
@@ -49,7 +48,7 @@ function CtaButton({ href, icon, children }: { href: string; children: React.Rea
       href={href}
       className="inline-flex flex-row gap-1 items-center px-3 py-1 text-xs font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-md transition-colors duration-200"
     >
-      {icon}
+      <Icon type={icon}/>
       {children}
     </Link>
   );
@@ -226,7 +225,7 @@ export function GameCard({
                 {game.metadata.externalLink && (
                   <CtaButton
                     href={game.metadata.externalLink}
-                    icon={<FontAwesomeIcon className="w-3" icon={faPlay} />}
+                    icon={"play"}
                   >
                     Play now
                   </CtaButton>
