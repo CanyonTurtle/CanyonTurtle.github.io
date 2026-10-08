@@ -1,6 +1,8 @@
 {
   "private": true,
   "scripts": {
+    "format": "prettier app",
+    "format:fix": "prettier app --write",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
