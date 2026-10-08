@@ -1,40 +1,33 @@
-import { notFound } from 'next/navigation'
-import { CustomMDX } from 'app/components/mdx'
-import { formatDate, getGames } from 'app/games/utils'
-import { baseUrl } from 'app/sitemap'
-import Link from 'next/link'
-import { getImageFullPath } from 'base-path'
-import { GameCard } from 'app/components/cards'
+import { notFound } from 'next/navigation';
+import { CustomMDX } from 'app/components/mdx';
+import { formatDate, getGames } from 'app/games/utils';
+import { baseUrl } from 'app/sitemap';
+import Link from 'next/link';
+import { getImageFullPath } from 'base-path';
+import { GameCard } from 'app/components/cards';
 
 // Import RoundedImage from the MDX components
 function RoundedImage(props) {
-  return <img alt={props.alt} className="rounded-lg" {...props} />
+  return <img alt={props.alt} className="rounded-lg" {...props} />;
 }
 
 export async function generateStaticParams() {
-  let games = getGames()
+  let games = getGames();
 
   return games.map((game) => ({
     slug: game.slug,
-  }))
+  }));
 }
 
 export async function generateMetadata(props) {
   const params = await props.params;
-  let game = getGames().find((game) => game.slug === params.slug)
+  let game = getGames().find((game) => game.slug === params.slug);
   if (!game) {
-    return
+    return;
   }
 
-  let {
-    title,
-    publishedAt: publishedTime,
-    summary: description,
-    image,
-  } = game.metadata
-  let ogImage = image
-    ? image
-    : `${baseUrl}/og?title=${encodeURIComponent(title)}`
+  let { title, publishedAt: publishedTime, summary: description, image } = game.metadata;
+  let ogImage = image ? image : `${baseUrl}/og?title=${encodeURIComponent(title)}`;
 
   return {
     title,
@@ -57,15 +50,15 @@ export async function generateMetadata(props) {
       description,
       images: [ogImage],
     },
-  }
+  };
 }
 
 export default async function Game(props) {
   const params = await props.params;
-  let game = getGames().find((game) => game.slug === params.slug)
+  let game = getGames().find((game) => game.slug === params.slug);
 
   if (!game) {
-    notFound()
+    notFound();
   }
 
   return (
@@ -96,10 +89,10 @@ export default async function Game(props) {
           }),
         }}
       />
-      <GameCard game={game} showReadMore={false} backHref="/games" href={`/games/${game.slug}`}/>
+      <GameCard game={game} showReadMore={false} backHref="/games" href={`/games/${game.slug}`} />
       <article className="prose max-w-none">
         <CustomMDX source={game.content} />
       </article>
     </section>
-  )
-} 
+  );
+}

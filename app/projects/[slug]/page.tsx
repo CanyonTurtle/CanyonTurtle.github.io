@@ -1,40 +1,33 @@
-import { notFound } from 'next/navigation'
-import { CustomMDX } from 'app/components/mdx'
-import { formatDate, getProjects } from 'app/projects/utils'
-import { baseUrl } from 'app/sitemap'
-import Link from 'next/link'
-import { getImageFullPath } from 'base-path'
-import { ProjectCard } from 'app/components/cards'
+import { notFound } from 'next/navigation';
+import { CustomMDX } from 'app/components/mdx';
+import { formatDate, getProjects } from 'app/projects/utils';
+import { baseUrl } from 'app/sitemap';
+import Link from 'next/link';
+import { getImageFullPath } from 'base-path';
+import { ProjectCard } from 'app/components/cards';
 
 // Import RoundedImage from the MDX components
 function RoundedImage(props) {
-  return <img alt={props.alt} className="rounded-lg" {...props} />
+  return <img alt={props.alt} className="rounded-lg" {...props} />;
 }
 
 export async function generateStaticParams() {
-  let projects = getProjects()
+  let projects = getProjects();
 
   return projects.map((project) => ({
     slug: project.slug,
-  }))
+  }));
 }
 
 export async function generateMetadata(props) {
   const params = await props.params;
-  let project = getProjects().find((project) => project.slug === params.slug)
+  let project = getProjects().find((project) => project.slug === params.slug);
   if (!project) {
-    return
+    return;
   }
 
-  let {
-    title,
-    publishedAt: publishedTime,
-    summary: description,
-    image,
-  } = project.metadata
-  let ogImage = image
-    ? image
-    : `${baseUrl}/og?title=${encodeURIComponent(title)}`
+  let { title, publishedAt: publishedTime, summary: description, image } = project.metadata;
+  let ogImage = image ? image : `${baseUrl}/og?title=${encodeURIComponent(title)}`;
 
   return {
     title,
@@ -57,15 +50,15 @@ export async function generateMetadata(props) {
       description,
       images: [ogImage],
     },
-  }
+  };
 }
 
 export default async function Project(props) {
   const params = await props.params;
-  let project = getProjects().find((project) => project.slug === params.slug)
+  let project = getProjects().find((project) => project.slug === params.slug);
 
   if (!project) {
-    notFound()
+    notFound();
   }
 
   return (
@@ -92,10 +85,15 @@ export default async function Project(props) {
           }),
         }}
       />
-      <ProjectCard project={project} showReadMore={false} backHref="/projects" href={`/projects/${project.slug}`}/>
+      <ProjectCard
+        project={project}
+        showReadMore={false}
+        backHref="/projects"
+        href={`/projects/${project.slug}`}
+      />
       <article className="prose max-w-none">
         <CustomMDX source={project.content} />
       </article>
     </section>
-  )
-} 
+  );
+}

@@ -1,12 +1,12 @@
-import path from 'path'
-import { getMDXData, formatDate, BaseMetadata } from 'app/lib/mdx'
+import path from 'path';
+import { getMDXData, formatDate, BaseMetadata } from 'app/lib/mdx';
 
 export type BlogMetadata = BaseMetadata & {
-  externalLink?: string
-}
+  externalLink?: string;
+};
 
 export function getBlogPosts() {
-  return getMDXData<BlogMetadata>(path.join(process.cwd(), 'app', 'blog', 'posts'))
+  return getMDXData<BlogMetadata>(path.join(process.cwd(), 'app', 'blog', 'posts'));
 }
 
-export { formatDate }
+export { formatDate };

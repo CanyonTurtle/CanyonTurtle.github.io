@@ -1,9 +1,9 @@
-import { GamesList } from 'app/components/games'
+import { GamesList } from 'app/components/games';
 
 export const metadata = {
   title: 'Games',
   description: 'Read my game reviews and thoughts.',
-}
+};
 
 export default function Page() {
   return (
@@ -14,5 +14,5 @@ export default function Page() {
       </p>
       <GamesList />
     </section>
-  )
-} 
+  );
+}

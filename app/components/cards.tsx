@@ -1,38 +1,38 @@
-import Link from 'next/link'
-import { formatDate } from 'app/lib/mdx'
-import { getImageFullPath } from 'base-path'
-import { getBlogPosts } from 'app/blog/utils'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlay } from '@fortawesome/free-solid-svg-icons'
+import Link from 'next/link';
+import { formatDate } from 'app/lib/mdx';
+import { getImageFullPath } from 'base-path';
+import { getBlogPosts } from 'app/blog/utils';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlay } from '@fortawesome/free-solid-svg-icons';
 
 // Import RoundedImage from the MDX components
 function RoundedImage(props) {
-  return <img alt={props.alt} className="rounded-lg" {...props} />
+  return <img alt={props.alt} className="rounded-lg" {...props} />;
 }
 
-function DateText({ start, end, className }: { start?: string, end?: string, className?: string }) {
+function DateText({ start, end, className }: { start?: string; end?: string; className?: string }) {
   if (start && end) {
     return (
       <p className={`text-xs text-neutral-500 dark:text-neutral-400 mb-1 ${className || ''}`}>
         {formatDate(start, false)} – {end === 'Present' ? 'Present' : formatDate(end, false)}
       </p>
-    )
+    );
   }
   if (start) {
     return (
       <p className={`text-xs text-neutral-500 dark:text-neutral-400 mb-1 ${className || ''}`}>
         {formatDate(start, false)}
       </p>
-    )
+    );
   }
   if (end) {
     return (
       <p className={`text-xs text-neutral-500 dark:text-neutral-400 mb-1 ${className || ''}`}>
         {end === 'Present' ? 'Present' : formatDate(end, false)}
       </p>
-    )
+    );
   }
-  return null
+  return null;
 }
 
 function TagChip({ children }: { children: React.ReactNode }) {
@@ -40,10 +40,10 @@ function TagChip({ children }: { children: React.ReactNode }) {
     <span className="bg-neutral-100 dark:bg-neutral-800 px-2 py-1 rounded-full text-neutral-700 dark:text-neutral-300">
       {children}
     </span>
-  )
+  );
 }
 
-function CtaButton({ href, icon, children }: { href: string, children: React.ReactNode }) {
+function CtaButton({ href, icon, children }: { href: string; children: React.ReactNode }) {
   return (
     <Link
       href={href}
@@ -52,10 +52,18 @@ function CtaButton({ href, icon, children }: { href: string, children: React.Rea
       {icon}
       {children}
     </Link>
-  )
+  );
 }
 
-function OtherButton({ href, children, icon }: { href: string, children: React.ReactNode, icon?: React.ReactNode }) {
+function OtherButton({
+  href,
+  children,
+  icon,
+}: {
+  href: string;
+  children: React.ReactNode;
+  icon?: React.ReactNode;
+}) {
   return (
     <Link
       href={href}
@@ -65,11 +73,17 @@ function OtherButton({ href, children, icon }: { href: string, children: React.R
       {icon}
       {children}
     </Link>
-  )
+  );
 }
 
 // Career card component
-export function CareerCard({ post, compact = false, href, showReadMore = true, backHref = '/career' }) {
+export function CareerCard({
+  post,
+  compact = false,
+  href,
+  showReadMore = true,
+  backHref = '/career',
+}) {
   return (
     <div className="bg-white dark:bg-neutral-900 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-200 border border-neutral-200 dark:border-neutral-800 p-4">
       <div className="flex flex-col sm:flex-row gap-4 items-start">
@@ -108,9 +122,7 @@ export function CareerCard({ post, compact = false, href, showReadMore = true, b
                 ) : (
                   <DateText start={post.metadata.publishedAt} />
                 )}
-                {post.metadata.technologies && (
-                  <TagChip>{post.metadata.technologies}</TagChip>
-                )}
+                {post.metadata.technologies && <TagChip>{post.metadata.technologies}</TagChip>}
               </div>
               <div className="flex flex-row gap-2 mt-1">
                 {showReadMore ? (
@@ -119,34 +131,48 @@ export function CareerCard({ post, compact = false, href, showReadMore = true, b
                   <OtherButton href={backHref}>← Back to career</OtherButton>
                 )}
                 {post.metadata.externalLink && (
-                  <OtherButton href={post.metadata.externalLink} icon={<svg
-                    className="w-3 h-3 mr-1"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+                  <OtherButton
+                    href={post.metadata.externalLink}
+                    icon={
+                      <svg
+                        className="w-3 h-3 mr-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                        />
+                      </svg>
+                    }
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-                    />
-                  </svg>}>View LinkedIn</OtherButton>
+                    View LinkedIn
+                  </OtherButton>
                 )}
                 {post.metadata.source && (
-                  <OtherButton href={post.metadata.source} icon={<svg
-                    className="w-3 h-3 mr-1"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+                  <OtherButton
+                    href={post.metadata.source}
+                    icon={
+                      <svg
+                        className="w-3 h-3 mr-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                        />
+                      </svg>
+                    }
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-                    />
-                  </svg>}>Source</OtherButton>
+                    Source
+                  </OtherButton>
                 )}
               </div>
             </div>
@@ -154,11 +180,17 @@ export function CareerCard({ post, compact = false, href, showReadMore = true, b
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 // Game card component
-export function GameCard({ game, compact = false, href, showReadMore = true, backHref = '/games' }) {
+export function GameCard({
+  game,
+  compact = false,
+  href,
+  showReadMore = true,
+  backHref = '/games',
+}) {
   return (
     <div className="bg-white dark:bg-neutral-900 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-200 border border-neutral-200 dark:border-neutral-800 p-4">
       <div className="flex flex-col sm:flex-row gap-4 items-start">
@@ -188,32 +220,38 @@ export function GameCard({ game, compact = false, href, showReadMore = true, bac
             <div className="flex flex-col gap-1">
               <div className="flex items-center gap-2 text-xs text-neutral-500 dark:text-neutral-500">
                 <DateText start={game.metadata.publishedAt} />
-                {game.metadata.genre && (
-                  <TagChip>{game.metadata.genre}</TagChip>
-                )}
+                {game.metadata.genre && <TagChip>{game.metadata.genre}</TagChip>}
               </div>
               <div className="flex flex-row gap-2 mt-1">
                 {game.metadata.externalLink && (
-                  <CtaButton href={game.metadata.externalLink} icon={
-(<FontAwesomeIcon className="w-3" icon={faPlay} />)
-                  }>
-                  Play now</CtaButton>
-
+                  <CtaButton
+                    href={game.metadata.externalLink}
+                    icon={<FontAwesomeIcon className="w-3" icon={faPlay} />}
+                  >
+                    Play now
+                  </CtaButton>
                 )}
                 {game.metadata.source && (
-                  <OtherButton href={game.metadata.source} icon={<svg
-                    className="w-3 h-3 mr-1"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+                  <OtherButton
+                    href={game.metadata.source}
+                    icon={
+                      <svg
+                        className="w-3 h-3 mr-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                        />
+                      </svg>
+                    }
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-                    />
-                  </svg>}>Source</OtherButton>
+                    Source
+                  </OtherButton>
                 )}
                 {showReadMore ? (
                   <OtherButton href={href}>Read more</OtherButton>
@@ -226,11 +264,17 @@ export function GameCard({ game, compact = false, href, showReadMore = true, bac
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 // Project card component
-export function ProjectCard({ project, compact = false, href, showReadMore = true, backHref = '/projects' }) {
+export function ProjectCard({
+  project,
+  compact = false,
+  href,
+  showReadMore = true,
+  backHref = '/projects',
+}) {
   return (
     <div className="bg-white dark:bg-neutral-900 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-200 border border-neutral-200 dark:border-neutral-800 p-4">
       <div className="flex flex-col sm:flex-row gap-4 items-start">
@@ -260,28 +304,33 @@ export function ProjectCard({ project, compact = false, href, showReadMore = tru
             <div className="flex flex-col gap-1">
               <div className="flex items-center gap-2 text-xs text-neutral-500 dark:text-neutral-500">
                 <DateText start={project.metadata.publishedAt} />
-                {project.metadata.category && (
-                  <TagChip>{project.metadata.category}</TagChip>
-                )}
+                {project.metadata.category && <TagChip>{project.metadata.category}</TagChip>}
               </div>
               <div className="flex flex-row gap-2 mt-1">
                 {project.metadata.externalLink && (
                   <CtaButton href={project.metadata.externalLink}>View project</CtaButton>
                 )}
                 {project.metadata.source && (
-                  <OtherButton href={project.metadata.source} icon={<svg
-                    className="w-3 h-3 mr-1"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+                  <OtherButton
+                    href={project.metadata.source}
+                    icon={
+                      <svg
+                        className="w-3 h-3 mr-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                        />
+                      </svg>
+                    }
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-                    />
-                  </svg>}>Source</OtherButton>
+                    Source
+                  </OtherButton>
                 )}
                 {showReadMore ? (
                   <OtherButton href={href}>Read more</OtherButton>
@@ -294,7 +343,7 @@ export function ProjectCard({ project, compact = false, href, showReadMore = tru
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 // Blog card component
@@ -359,23 +408,21 @@ export function BlogCard({ post, compact = false, href, showReadMore = true, bac
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 // Blog posts list component
 export function BlogPosts() {
-  let allBlogs = getBlogPosts()
+  let allBlogs = getBlogPosts();
 
   return (
     <div className="space-y-4">
       {allBlogs
         .sort((a, b) => {
-          if (
-            new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)
-          ) {
-            return -1
+          if (new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)) {
+            return -1;
           }
-          return 1
+          return 1;
         })
         .map((post) => (
           <BlogCard
@@ -385,5 +432,5 @@ export function BlogPosts() {
           />
         ))}
     </div>
-  )
-} 
+  );
+}

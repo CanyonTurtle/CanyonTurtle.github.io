@@ -1,6 +1,6 @@
-import { baseUrl } from 'app/sitemap'
+import { baseUrl } from 'app/sitemap';
 
-export const dynamic = 'force-static'
+export const dynamic = 'force-static';
 
 export default function robots() {
   return {
@@ -10,5 +10,5 @@ export default function robots() {
       },
     ],
     sitemap: `${baseUrl}/sitemap.xml`,
-  }
+  };
 }
