@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { formatDate } from 'app/lib/mdx';
 import { getImageFullPath } from 'base-path';
 import { getBlogPosts } from 'app/blog/utils';
-import { Icon } from './icon';
+import { Icon, type IconType } from './fa-icon';
 
 // Import RoundedImage from the MDX components
 function RoundedImage(props) {
@@ -42,13 +42,25 @@ function TagChip({ children }: { children: React.ReactNode }) {
   );
 }
 
-function CtaButton({ href, icon, children }: { href: string; children: React.ReactNode }) {
+function ButtonIcon({ icon }: { icon?: IconType | React.ReactNode }) {
+  return typeof icon === 'string' ? <Icon type={icon as IconType} /> : icon;
+}
+
+function CtaButton({
+  href,
+  icon,
+  children,
+}: {
+  href: string;
+  icon?: IconType | React.ReactNode;
+  children: React.ReactNode;
+}) {
   return (
     <Link
       href={href}
       className="inline-flex flex-row gap-1 items-center px-3 py-1 text-xs font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-md transition-colors duration-200"
     >
-      <Icon type={icon} />
+      <ButtonIcon icon={icon} />
       {children}
     </Link>
   );
@@ -61,7 +73,7 @@ function OtherButton({
 }: {
   href: string;
   children: React.ReactNode;
-  icon?: React.ReactNode;
+  icon?: IconType | React.ReactNode;
 }) {
   return (
     <Link
@@ -69,7 +81,7 @@ function OtherButton({
       rel="noopener noreferrer"
       className="inline-flex flex-row gap-1 items-center px-3 py-1 text-xs font-medium text-neutral-700 dark:text-neutral-300 bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 rounded-md transition-colors duration-200"
     >
-      <Icon type={icon} />
+      <ButtonIcon icon={icon} />
       {children}
     </Link>
   );
