@@ -19,7 +19,8 @@ export async function generateStaticParams() {
   }))
 }
 
-export function generateMetadata({ params }) {
+export async function generateMetadata(props) {
+  const params = await props.params;
   let game = getGames().find((game) => game.slug === params.slug)
   if (!game) {
     return
@@ -59,7 +60,8 @@ export function generateMetadata({ params }) {
   }
 }
 
-export default function Game({ params }) {
+export default async function Game(props) {
+  const params = await props.params;
   let game = getGames().find((game) => game.slug === params.slug)
 
   if (!game) {

@@ -2,6 +2,8 @@ import Link from 'next/link'
 import { formatDate } from 'app/lib/mdx'
 import { getImageFullPath } from 'base-path'
 import { getBlogPosts } from 'app/blog/utils'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlay } from '@fortawesome/free-solid-svg-icons'
 
 // Import RoundedImage from the MDX components
 function RoundedImage(props) {
@@ -41,12 +43,13 @@ function TagChip({ children }: { children: React.ReactNode }) {
   )
 }
 
-function CtaButton({ href, children }: { href: string, children: React.ReactNode }) {
+function CtaButton({ href, icon, children }: { href: string, children: React.ReactNode }) {
   return (
     <Link
       href={href}
-      className="inline-flex items-center px-3 py-1 text-xs font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-md transition-colors duration-200"
+      className="inline-flex flex-row gap-1 items-center px-3 py-1 text-xs font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-md transition-colors duration-200"
     >
+      {icon}
       {children}
     </Link>
   )
@@ -191,7 +194,11 @@ export function GameCard({ game, compact = false, href, showReadMore = true, bac
               </div>
               <div className="flex flex-row gap-2 mt-1">
                 {game.metadata.externalLink && (
-                  <CtaButton href={game.metadata.externalLink}>Play now</CtaButton>
+                  <CtaButton href={game.metadata.externalLink} icon={
+(<FontAwesomeIcon className="w-3" icon={faPlay} />)
+                  }>
+                  Play now</CtaButton>
+
                 )}
                 {game.metadata.source && (
                   <OtherButton href={game.metadata.source} icon={<svg

@@ -19,7 +19,8 @@ export async function generateStaticParams() {
   }))
 }
 
-export function generateMetadata({ params }) {
+export async function generateMetadata(props) {
+  const params = await props.params;
   let project = getProjects().find((project) => project.slug === params.slug)
   if (!project) {
     return
@@ -59,7 +60,8 @@ export function generateMetadata({ params }) {
   }
 }
 
-export default function Project({ params }) {
+export default async function Project(props) {
+  const params = await props.params;
   let project = getProjects().find((project) => project.slug === params.slug)
 
   if (!project) {
