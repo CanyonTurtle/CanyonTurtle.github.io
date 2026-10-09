@@ -81,7 +81,6 @@ export default async function Blog(props) {
       />
       {post.metadata.image ? (
         <img
-          className="rounded-lg"
           src={getImageFullPath(post.metadata.image)}
           alt={post.metadata.title}
           className="w-full object-contain group-hover:scale-105 transition-transform duration-200 rounded-lg"

@@ -1,5 +1,5 @@
-import { getComicPosts } from 'app/comics/utils.ts';
-import { BlogCard } from 'app/components/cards.tsx';
+import { getComicPosts } from 'app/comics/utils';
+import { BlogCard } from 'app/components/cards';
 
 export const metadata = {
   title: 'Comics',
@@ -22,7 +22,7 @@ function Comics() {
           <BlogCard
             key={post.slug}
             post={post}
-            href={post.metadata.externalLink || `/comics/${post.slug}`}
+            href={`/comics/${post.slug}`}
           />
         ))}
     </div>
