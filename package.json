@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "static": "next build && touch ./out/.nojekyll && echo 'portfolio.canyonturtle.org' > ./out/CNAME",
+    "static": "next build && touch ./out/.nojekyll && echo 'canyonturtle.org' > ./out/CNAME",
     "deploy": "pnpm run static && gh-pages -d out -t"
   },
   "dependencies": {

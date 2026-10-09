@@ -1,7 +1,7 @@
 
 const isProd = process.env.NODE_ENV === 'production';
 
-export const baseUri = "https://portfolio.canyonturtle.org";
+export const baseUri = "https://canyonturtle.org";
 export const basePath = isProd ? '' : '';
 export const assetPrefix = undefined;
 
