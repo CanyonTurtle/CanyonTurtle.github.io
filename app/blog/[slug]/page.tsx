@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import { CustomMDX } from 'app/components/mdx';
+import { Discuss } from 'app/components/discuss';
 import { formatDate, getBlogPosts } from 'app/blog/utils';
 import { baseUrl } from 'app/sitemap';
 import { getImageFullPath } from 'base-path';
@@ -83,6 +84,7 @@ export default async function Blog(props) {
       <article className="prose prose-neutral dark:prose-invert max-w-none">
         <CustomMDX source={post.content} />
       </article>
+      <Discuss />
     </section>
   );
 }

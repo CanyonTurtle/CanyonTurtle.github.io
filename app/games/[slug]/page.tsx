@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import { CustomMDX } from 'app/components/mdx';
+import { Discuss } from 'app/components/discuss';
 import { formatDate, getGames } from 'app/games/utils';
 import { baseUrl } from 'app/sitemap';
 import Link from 'next/link';
@@ -93,6 +94,7 @@ export default async function Game(props) {
       <article className="prose max-w-none">
         <CustomMDX source={game.content} />
       </article>
+      <Discuss />
     </section>
   );
 }

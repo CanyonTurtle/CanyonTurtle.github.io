@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import { CustomMDX } from 'app/components/mdx';
+import { Discuss } from 'app/components/discuss';
 import { formatDate, getCareerPosts } from 'app/career/utils';
 import { baseUrl } from 'app/sitemap';
 import Link from 'next/link';
@@ -94,6 +95,7 @@ export default async function CareerPost(props) {
       <article className="prose max-w-none">
         <CustomMDX source={post.content} />
       </article>
+      <Discuss />
     </section>
   );
 }

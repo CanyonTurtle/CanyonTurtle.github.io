@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import { CustomMDX } from 'app/components/mdx';
+import { Discuss } from 'app/components/discuss';
 import { formatDate, getProjects } from 'app/projects/utils';
 import { baseUrl } from 'app/sitemap';
 import Link from 'next/link';
@@ -94,6 +95,7 @@ export default async function Project(props) {
       <article className="prose max-w-none">
         <CustomMDX source={project.content} />
       </article>
+      <Discuss />
     </section>
   );
 }
