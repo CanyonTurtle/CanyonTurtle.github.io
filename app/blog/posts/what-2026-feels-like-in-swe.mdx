@@ -1,0 +1,71 @@
+---
+title: 'What 2026 feels like in SWE'
+publishedAt: '2026-10-08'
+summary: 'If I hear SWE was never about coding one more time'
+image: '/images/webcomic-1.png'
+---
+
+## My unorganized complaints about the inevitable march of the simulacrum
+
+I went to college wanting to pick a career that would have longevity in the face of AI, so I
+majored in applied mathematics and minored in computer science. Good thing we'll need programmers to write the AI, right?
+And hey, if the AI writes the AI, at least AI can't prove the quasi Riemann Hypothesis, right?
+[(Proceeds to prove the quasi Riemann Hypothesis)](https://github.com/openai/math/tree/main/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026)
+
+It's not like I was going to prove the quasi Riemann Hypothesis, but now I can't even maintain a delusion about proving
+the quasi Riemann hypothesis anymore??
+
+### 2026 is about being flexible
+
+What does it mean to be a software engineer? What is intelligence? What
+is scarce and marketable about my career, when the central keystone that 
+brought me here in the first place (I'm referring to _coding_, a practice in which you type source code into a file for compilation) is increasingly something I'm expected
+to orchestrate rather than to, you know, do?
+
+We all need jobs. So we adapt as best we can. I want to give a lens in what
+that means for me in how I work. I believe that software engineering will increasingly be
+marketable on the basis that engineers can synthesize the exponential power of AI better than
+non-engineers by merit of engineers being able to... do something that lives somewhere in the following ideas.
+
+### Leveraging AI smoothly
+
+If I believe anything about AI usage, it is this. AI's ability to help a software product is primarily a function of these parts:
+- The clarity of the stated product needs.
+- The robustness of the codebase to structurally adapt to the distributionally different shape of AI-authored code.
+  Can a codebase's patterns scale logarithmically with the complexity of the needed features?
+  Does it remain clear how to find any single feature? How to test it?
+- The quality of the staging environment and otherwise nonprod resources available to engineers to allocate to AI agents
+  to allow those agents to converge upon correct solutions.
+
+### Protecting simplicity
+
+Simplicity is hard. It's probably the thing I think sets apart good code from bad code, when it boils down to it.
+- Do I need to know about the 5 different lava flows that motivated the history of this codebase to be productive?
+- Can I actually _read_ and understand what a piece of code is doing?
+- Is code littered with arbitrary complex decisions made at the behest of AI, such that the forest is lost in the trees?
+
+What's interesting to me about simplicity is that the largest functional constraint (an engineer's time to code something)
+has been stretched exponentially. Should simplicity be a free variable allowed to just balloon in that space?
+
+Some engineers will hand wave this by saying "the agent's testing framework and feedback loops are what guarantee quality, not the code itself anymore."
+And while I tend to agree these loops help with delivering something, it feels... myopic. In the end, I belive having a simple codebase
+will respond much better to changing needs than one that has to churn several thousand lines to make a small feature.
+
+But hey, maybe that's just the pre-AI copium mindset that doesn't remember how easily a few thousand lines can be rewritten these days.
+
+### Organizational and Design clarity 
+
+I really like [Conway's law](https://en.wikipedia.org/wiki/Conway%27s_law) and what it has to say about how engineering work
+gets shaped by organizational structures. When knowledge is silo'ed and disconnected, I believe it ripples into what gets implemented and maintained.
+For this reason, the importance of good collaborative design in the sense of technical design is something I think remains.
+
+When you dive into writing a feature, who is solving the many edge cases and problems that come up? What decisions get made
+on behalf of finishing? Were those decisions well thought through? Were they understood by the team? 
+
+When teams prioritize shifting thought "to the left of the kanban board" --  that is, planning and discussing architecture, working through a shared design document, and pass review _before_ writing code,
+I think something magical happens. It gives the team a chance to actually understand the product. To actually voice concerns and design patterns that should be followed.
+This is a type of teamwork that scalable engineering benefits immensely from.
+
+## Conclusion
+
+Here be some thoughts. Take them with you. Make them yours. Let me know what you think.

@@ -42,7 +42,6 @@ function TagChip({ children }: { children: React.ReactNode }) {
   );
 }
 
-
 function CtaButton({
   href,
   icon,
@@ -133,12 +132,10 @@ export function CareerCard({
                 {post.metadata.technologies && <TagChip>{post.metadata.technologies}</TagChip>}
               </div>
               <div className="flex flex-row gap-2 mt-1">
-                {showReadMore ? (
+                {showReadMore && (
                   <CtaButton href={href} icon={'glasses'}>
                     Read more
                   </CtaButton>
-                ) : (
-                  <OtherButton href={backHref}>← Back to career</OtherButton>
                 )}
                 {post.metadata.externalLink && (
                   <OtherButton href={post.metadata.externalLink} icon={'link'}>
@@ -267,19 +264,11 @@ export function ProjectCard({
                   <CtaButton href={project.metadata.externalLink}>View project</CtaButton>
                 )}
                 {project.metadata.source && (
-                  <OtherButton
-                    href={project.metadata.source}
-                    icon={'source'
-                    }
-                  >
+                  <OtherButton href={project.metadata.source} icon={'source'}>
                     Source
                   </OtherButton>
                 )}
-                {showReadMore ? (
-                  <OtherButton href={href}>Read more</OtherButton>
-                ) : (
-                  <OtherButton href={backHref}>← Back to projects</OtherButton>
-                )}
+                {showReadMore && <OtherButton href={href}>Read more</OtherButton>}
               </div>
             </div>
           )}
@@ -341,11 +330,7 @@ export function BlogCard({ post, compact = false, href, showReadMore = true, bac
           )}
           {!compact && (
             <div className="flex flex-row gap-2 mt-1">
-              {showReadMore ? (
-                <CtaButton href={href}>Read</CtaButton>
-              ) : (
-                <OtherButton href={backHref}>← Back to blog</OtherButton>
-              )}
+              {showReadMore && <CtaButton href={href}>Read</CtaButton>}
             </div>
           )}
         </div>

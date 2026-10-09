@@ -1,6 +1,3 @@
-# My portfolio
+Welcome to my little corner of the internet. I hope you like it here.
 
-This is my public portfolio!
-
-## Other reading
-Helpful tips to geting this deployed https://stackoverflow.com/a/69942406
+<https://portfolio.canyonturtle.org>

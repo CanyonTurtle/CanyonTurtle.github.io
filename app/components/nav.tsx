@@ -19,6 +19,9 @@ const navItems = {
   '/blog': {
     name: 'blog',
   },
+  '/comics': {
+    name: 'comics',
+  },
   '/contact': {
     name: 'contact',
   },
