@@ -42,9 +42,6 @@ function TagChip({ children }: { children: React.ReactNode }) {
   );
 }
 
-function ButtonIcon({ icon }: { icon?: IconType | React.ReactNode }) {
-  return typeof icon === 'string' ? <Icon type={icon as IconType} /> : icon;
-}
 
 function CtaButton({
   href,
@@ -52,7 +49,7 @@ function CtaButton({
   children,
 }: {
   href: string;
-  icon?: IconType | React.ReactNode;
+  icon?: IconType;
   children: React.ReactNode;
 }) {
   return (
@@ -60,7 +57,7 @@ function CtaButton({
       href={href}
       className="inline-flex flex-row gap-1 items-center px-3 py-1 text-xs font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-md transition-colors duration-200"
     >
-      <Icon icon={icon} />
+      {icon && <Icon icon={icon} />}
       {children}
     </Link>
   );
@@ -73,7 +70,7 @@ function OtherButton({
 }: {
   href: string;
   children: React.ReactNode;
-  icon?: IconType | React.ReactNode;
+  icon?: IconType;
 }) {
   return (
     <Link
@@ -81,7 +78,7 @@ function OtherButton({
       rel="noopener noreferrer"
       className="inline-flex flex-row gap-1 items-center px-3 py-1 text-xs font-medium text-neutral-700 dark:text-neutral-300 bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 rounded-md transition-colors duration-200"
     >
-      <Icon icon={icon} />
+      {icon && <Icon icon={icon} />}
       {children}
     </Link>
   );
@@ -272,20 +269,7 @@ export function ProjectCard({
                 {project.metadata.source && (
                   <OtherButton
                     href={project.metadata.source}
-                    icon={
-                      <svg
-                        className="w-3 h-3 mr-1"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-                        />
-                      </svg>
+                    icon={'source'
                     }
                   >
                     Source
