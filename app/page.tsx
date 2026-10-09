@@ -44,7 +44,7 @@ export default function Page() {
           height={192}
           className="rounded-full mb-4 border border-neutral-300 dark:border-neutral-700 shadow-sm"
         />
-        <h1 className="text-2xl font-semibold tracking-tighter">Cannon Tuttle's Portfolio</h1>
+        <h1 className="text-2xl font-semibold tracking-tighter">Cannon Tuttle</h1>
         <div className="flex flex-row flex-wrap gap-x-4 gap-y-1 mt-1 mb-2 text-sm text-neutral-600 dark:text-neutral-400 leading-tight">
           <div className="flex flex-row gap-2">
             <Icon icon={'linkedin'} />
